@@ -15,8 +15,7 @@ variables:
   bkstrgkey: 'devpipeline.terraform.tfstate'
 stages:  
   - stage: tfdeploy
-    condition: succeeded('tfvalidate')
-    dependsOn: tfvalidate    
+    condition: succeeded('tfvalidate')    
     jobs:
       - job: apply
         steps:
