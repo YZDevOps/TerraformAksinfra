@@ -13,6 +13,7 @@ variables:
   bkstrg: 'storacctest01'
   bkcontainer: 'tfstate'
   bkstrgkey: 'devpipeline.terraform.tfstate'
+stages:  
   - stage: tfdeploy
     condition: succeeded('tfvalidate')
     dependsOn: tfvalidate    
