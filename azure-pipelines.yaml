@@ -29,7 +29,7 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'init'
-              backendServiceArm: 'AksServiceConnection'
+              backendServiceArm: 'My-App-SPN'
               backendAzureRmResourceGroupName: '$(bkstrgrg)'
               backendAzureRmStorageAccountName: '$(bkstrg)'
               backendAzureRmContainerName: '$(bkcontainer)'
@@ -64,11 +64,5 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'plan'
-              environmentServiceNameAzureRM: 'AksServiceConnection'
-          - task: TerraformTaskV3@3
-            displayName: apply
-            inputs:
-              provider: 'azurerm'
-              command: 'apply'
-              environmentServiceNameAzureRM: 'AksServiceConnection'
+              environmentServiceNameAzureRM: 'My-App-SPN'
   
