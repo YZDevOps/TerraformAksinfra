@@ -71,15 +71,4 @@ stages:
               provider: 'azurerm'
               command: 'apply'
               environmentServiceNameAzureRM: 'AksServiceConnection'
-  - stage: tfdestroy
-    condition: succeeded('tfdeploy')
-    dependsOn: tfdeploy    
-    jobs:
-      - job: destroy
-        steps:
-          - task: TerraformTaskV3@3
-            displayName: destroy
-            inputs:
-              provider: 'azurerm'
-              command: 'destroy'
-              environmentServiceNameAzureRM: 'AksServiceConnection'
+  
